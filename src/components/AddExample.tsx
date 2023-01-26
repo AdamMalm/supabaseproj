@@ -9,7 +9,7 @@ export const AddExample = () => {
   const [text, setText] = useState("");
 
   return (
-    <div>
+    <div className="mt-8">
       <input
         placeholder="name"
         value={text}
@@ -25,6 +25,7 @@ export const AddExample = () => {
           });
         }}
         disabled={addExample.isLoading}
+        className="mx-2 bg-slate-700 px-2 text-slate-200"
       >
         Create
       </button>

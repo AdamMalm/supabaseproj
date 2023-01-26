@@ -1,24 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-
 export default function Login() {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-        detectSessionInUrl: false,
-      },
-    }
-  );
-
-  async function signInWithGitHub() {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: "github",
-    });
-  }
-
   return (
     <>
       <main className="mx-auto flex max-w-8xl flex-col items-center justify-center px-4 sm:px-6 md:px-8">
@@ -29,7 +9,7 @@ export default function Login() {
           {/* <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">
             This is an example of a large text, below is normal text
           </p> */}
-          <form onSubmit={signInWithGitHub} className="flex flex-col">
+          <form className="flex flex-col">
             <label className="flex flex-col items-center">
               Email:
               <input type="text" name="email" />

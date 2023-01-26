@@ -1,28 +1,14 @@
 import { type NextPage } from "next";
+
 import Header from "../components/Header";
-import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const Home: NextPage = () => {
-  const session = useSession();
-  const supabase = useSupabaseClient();
-
   return (
     <>
       <main className="min-h-screen">
         <Header />
         <div className="mx-auto max-w-8xl px-4 pt-10 sm:px-6 md:px-8">
-          {!session ? (
-            <Auth
-              providers={["github"]}
-              supabaseClient={supabase}
-              appearance={{ theme: ThemeSupa }}
-              theme="dark"
-            />
-          ) : (
-            <p>Account page will go here.</p>
-          )}
-          {/*           <h1 className="text-2xl font-bold tracking-tight dark:text-slate-200 sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight dark:text-slate-200 sm:text-3xl">
             Welcome to the homepage
           </h1>
           <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">
@@ -53,7 +39,7 @@ const Home: NextPage = () => {
               non proident, sunt in culpa qui officia deserunt mollit anim id
               est laborum.
             </p>
-          </div> */}
+          </div>
         </div>
       </main>
     </>

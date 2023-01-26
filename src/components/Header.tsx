@@ -2,15 +2,18 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { AuthShowcase } from "./AuthShowcase";
 
 export default function Header() {
   const [hamburgerState, setHamburgerState] = useState(false);
 
   return (
-    <div className="border-b dark:border-slate-400/10 flex justify-center">
-      <div className="h-14 w-full dark:bg-slate-800 flex justify-end items-center max-w-8xl px-4 sm:px-6 md:px-8">
+    <div className="flex justify-center border-b dark:border-slate-400/10">
+      <div className="flex h-14 w-full max-w-8xl items-center justify-between px-4 dark:bg-slate-800 sm:px-6 md:px-8">
+        <AuthShowcase />
+
         <button
-          className="md:hidden mx-4"
+          className="mx-4 md:hidden"
           onClick={() => setHamburgerState(!hamburgerState)}
         >
           <svg
@@ -19,7 +22,7 @@ export default function Header() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-8 h-8 dark:text-slate-200"
+            className="h-8 w-8 dark:text-slate-200"
           >
             <path
               strokeLinecap="round"
@@ -29,8 +32,8 @@ export default function Header() {
           </svg>
         </button>
 
-        <nav className="hidden md:block w-80">
-          <ul className="hidden md:flex justify-around dark:text-slate-200 text-md font-bold tracking-wide">
+        <nav className="hidden w-80 md:block">
+          <ul className="text-md hidden justify-around font-bold tracking-wide dark:text-slate-200 md:flex">
             <li className="hover:text-slate-300">
               <Link href="/projects">Projects</Link>
             </li>
@@ -46,12 +49,12 @@ export default function Header() {
         {hamburgerState ? (
           <>
             <div
-              className="h-screen w-full inset-0 fixed md:hidden backdrop-blur-sm dark:bg-slate-800/80"
+              className="fixed inset-0 h-screen w-full backdrop-blur-sm dark:bg-slate-800/80 md:hidden"
               onClick={() => setHamburgerState(!hamburgerState)}
             ></div>
-            <aside className="h-screen w-48 dark:bg-slate-700 flex flex-col fixed top-0 right-0 items-center z-10 justify-center md:hidden">
+            <aside className="fixed top-0 right-0 z-10 flex h-screen w-48 flex-col items-center justify-center dark:bg-slate-700 md:hidden">
               <nav>
-                <ol className="flex flex-col w-full items-center dark:text-slate-200 text-md leading-tight font-medium">
+                <ol className="text-md flex w-full flex-col items-center font-medium leading-tight dark:text-slate-200">
                   <li className="hover:text-slate-300">
                     <Link href="/projects">Projects</Link>
                   </li>
